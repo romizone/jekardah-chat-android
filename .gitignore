@@ -1,0 +1,9 @@
+node_modules/
+dist/
+twa/.gradle/
+twa/build/
+twa/app/build/
+twa/local.properties
+*.jks
+*.keystore
+keystore.properties

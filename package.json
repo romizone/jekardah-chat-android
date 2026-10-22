@@ -1,0 +1,14 @@
+{
+  "name": "jekardah-chat-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplikasi Android Jekardah Chat (Trusted Web Activity untuk chat.jekardah.com)",
+  "scripts": {
+    "init-project": "node scripts/init-project.js",
+    "build": "bash scripts/build.sh"
+  },
+  "devDependencies": {
+    "@bubblewrap/cli": "^1.27.0",
+    "@bubblewrap/core": "^1.27.0"
+  }
+}
