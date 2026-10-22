@@ -22,8 +22,37 @@ import android.os.Bundle;
 
 
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import com.google.androidbrowserhelper.trusted.TwaLauncher;
+
 public class LauncherActivity
         extends com.google.androidbrowserhelper.trusted.LauncherActivity {
+
+    private static final String[] CHROME_PACKAGES = {
+        "com.android.chrome", "com.chrome.beta", "com.chrome.dev", "com.chrome.canary"
+    };
+
+    /** Chrome (atau versi beta/dev) yang terpasang & aktif, atau null. */
+    private String installedChrome() {
+        PackageManager pm = getPackageManager();
+        for (String pkg : CHROME_PACKAGES) {
+            try {
+                ApplicationInfo info = pm.getApplicationInfo(pkg, 0);
+                if (info.enabled) return pkg;
+            } catch (PackageManager.NameNotFoundException ignored) {
+                // tidak terpasang
+            }
+        }
+        return null;
+    }
+
+    @Override
+    protected TwaLauncher createTwaLauncher() {
+        String chrome = installedChrome();
+        return chrome != null ? new TwaLauncher(this, chrome) : super.createTwaLauncher();
+    }
+
     
 
     

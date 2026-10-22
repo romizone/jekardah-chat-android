@@ -13,7 +13,14 @@ dan semua fitur web berjalan sama persis, tampil layar penuh tanpa address bar, 
 2. Buka file-nya di HP. Bila diminta, izinkan **Pasang aplikasi tidak dikenal** untuk browser / File Manager.
 3. Buka **Jekardah** dari layar utama, login dengan Google, lalu ketuk **Aktifkan notifikasi**.
 
-Butuh Android 7.0+ dengan Google Chrome (bawaan hampir semua HP Android).
+Butuh Android 7.0+ dengan Google Chrome (bawaan hampir semua HP Android, termasuk Samsung Galaxy).
+Aplikasi selalu memakai Chrome walaupun browser default HP adalah Samsung Internet. Bila Chrome belum pernah dibuka di HP itu,
+layar sambutan Chrome muncul sekali saat aplikasi pertama kali dibuka.
+
+| Versi | Catatan |
+|---|---|
+| **1.0.1** | Perbaikan: v1.0.0 langsung tertutup saat dibuka (crash `ManageDataLauncherActivity`); selalu memakai Chrome (Samsung Internet sebagai default) |
+| 1.0.0 | Rilis pertama — **jangan dipakai**, crash saat dibuka |
 
 ## Detail teknis
 
@@ -33,7 +40,7 @@ Butuh JDK 17 & Android SDK (build-tools 35, platform 36) di `~/.jekardah-android
 ```bash
 npm install
 npm run init-project   # buat ulang proyek Android dari konfigurasi di scripts/init-project.js
-npm run build          # compile + tanda tangani: dist/Jekardah-Chat-<versi>.apk (pasang langsung) & .aab (Google Play)
+npm run build          # compile + tanda tangani (uji di emulator Android 15 sebelum rilis): dist/Jekardah-Chat-<versi>.apk (pasang langsung) & .aab (Google Play)
 ```
 
 Rilis baru: naikkan `version` di `package.json` (versionCode dihitung otomatis), lalu `npm run init-project && npm run build`.
